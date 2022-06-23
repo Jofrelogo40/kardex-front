@@ -1,0 +1,65 @@
+<a title="Tracking">
+  <mat-icon class="iconRed" (click)="ampliar()">
+    aspect_ratio
+  </mat-icon>
+</a>
+
+<a title="Notificacion">
+  <mat-icon
+    *ngIf="params.data.estadoDesc != 'CERRADA'; else noNotificcar"
+    class="iconRed margin"
+    (click)="notificar()">
+    notifications
+  </mat-icon>
+  <ng-template #noNotificcar class="iconGrey">
+    <mat-icon class="iconGrey">notifications</mat-icon>
+  </ng-template>
+</a>
+
+<a title="Editar">
+  <mat-icon
+    *ngIf="params.data.estadoDesc != 'CERRADA'; else noEditar"
+    class="iconRed margin"
+    (click)="editar()">
+    edit
+  </mat-icon>
+  <ng-template #noEditar class="iconGrey">
+    <mat-icon class="iconGrey">edit</mat-icon>
+  </ng-template>
+</a>
+
+<a title="Inhabilitar/Habilitar ">
+  <mat-icon
+    *ngIf="params.data.estadoDesc != 'CERRADA'; else noHabilitar"
+    class="iconRed margin"
+    (click)="inhabilitar()">
+    lock
+  </mat-icon>
+  <ng-template #noHabilitar class="iconGrey">
+    <mat-icon class="iconGrey">lock</mat-icon>
+  </ng-template>
+</a>
+
+<a title="Inactivar">
+  <mat-icon
+    *ngIf="params.data.estadoDesc != 'CERRADA'; else noInactivar"
+    class="iconRed margin"
+    (click)="inactivar()">
+    delete
+  </mat-icon>
+  <ng-template #noInactivar class="iconGrey">
+    <mat-icon class="iconGrey">delete</mat-icon>
+  </ng-template>
+</a>
+
+<a title="Liberar">
+  <mat-icon
+    *ngIf="params.data.estadoDesc != 'CERRADA'; else noLiberar"
+    class="iconRed margin"
+    (click)="liberar()">
+    exit_to_app
+  </mat-icon>
+  <ng-template #noLiberar class="iconGrey">
+    <mat-icon class="iconGrey">exit_to_app</mat-icon>
+  </ng-template>
+</a>
