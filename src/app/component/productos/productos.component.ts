@@ -3,6 +3,8 @@ import {GridOptions} from 'ag-grid-community';
 import {AccionesComponent} from "./grid/acciones/acciones.component";
 import {Grid} from "./grid/grid";
 import {ProductosService} from "../../services/productos.service";
+import {CrearProductoComponent} from "../popups/crear-producto/crear-producto.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-productos',
@@ -31,6 +33,7 @@ export class ProductosComponent implements OnInit {
   constructor(
     private productosServices: ProductosService,
     private gridDefinition: Grid,
+    public dialog: MatDialog,
   ) {
     this.configurarGrids();
   }
@@ -63,6 +66,20 @@ export class ProductosComponent implements OnInit {
     this.gridConsultaProductos.defaultColDef = {
       resizable: true
     };
+  }
+
+  /**
+   * Permite abrir el popup de actualizar resolucion
+   */
+  crearNuevo() {
+    const dialogRef = this.dialog.open(CrearProductoComponent, {
+      width: '70%',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      this.consultarProductos();
+    });
   }
 
   /**

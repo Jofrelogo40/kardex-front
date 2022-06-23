@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material';
 import { AppComponent } from './app.component';
@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductosComponent } from './component/productos/productos.component';
 import { AgGridModule } from 'ag-grid-angular';
 import {AccionesComponent} from "./component/productos/grid/acciones/acciones.component";
-
+import {CrearProductoComponent} from "./component/popups/crear-producto/crear-producto.component";
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import {AccionesComponent} from "./component/productos/grid/acciones/acciones.co
     StoreComponent,
     ProductosComponent,
     AccionesComponent,
+    CrearProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,7 @@ import {AccionesComponent} from "./component/productos/grid/acciones/acciones.co
     BrowserAnimationsModule,
     AgGridModule.withComponents([]),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],

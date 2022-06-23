@@ -1,0 +1,80 @@
+<div class="crear-producto-component">
+  <mat-toolbar color="primary" class="colorTitle heightHeader">
+    <div  style="width: 100%; display: flex">
+      <div style="width: 90%">
+        <mat-icon aria-hidden="false">edit</mat-icon>
+        <span class="fill-remaining-space colorTitle" style="margin-left: 10px" >Crear Producto</span>
+      </div>
+      <div>
+        <button mat-icon-button mat-dialog-close >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <form [formGroup]="formProductos">
+
+    <div formGroupName="paramProducto">
+
+      <mat-card class="mat-card-custom" #wrapperContainer>
+
+        <div style="margin: 2%; display: flex" >
+
+          <!--referencia-->
+          <div id="referencia" style="width: 50%;">
+            <mat-form-field >
+              <mat-label>Referencia</mat-label>
+              <input matInput formControlName="referencia" id="inputReferencia">
+            </mat-form-field>
+          </div>
+
+          <!--nombre-->
+          <div id="nombre" style="width: 50%;">
+            <mat-form-field >
+              <mat-label>Nombre</mat-label>
+              <input matInput maxlength="20" formControlName="nombre" id="inputNombre">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div  style="margin: 2%; display: flex">
+
+          <!--descripcion-->
+          <div id="descripcion" style="width: 50%;">
+            <mat-form-field >
+              <mat-label>Descripcion</mat-label>
+              <input matInput maxlength="50" formControlName="descripcion" id="inputDescripcion">
+            </mat-form-field>
+          </div>
+
+          <!--precio-->
+          <div id="precio" style="width: 50%;">
+            <mat-form-field >
+              <mat-label>Precio</mat-label>
+              <input matInput maxlength="10" formControlName="precio" id="inputPrecio">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div  style="margin: 2%; display: flex">
+
+          <!--cantidad-->
+          <div id="cantidad" style="width: 50%;">
+            <mat-form-field >
+              <mat-label>Cantidad</mat-label>
+              <input matInput maxlength="10" formControlName="cantidad" id="inputCantidad">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center"
+               style="margin-bottom: 10px">
+            <button class="btn" id="btnAceptar" mat-raised-button
+                    type="button" (click)="guardarProducto()">Guardar</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </form>
+</div>
