@@ -23,7 +23,7 @@ export class UtilService {
       confirmButtonText: 'Aceptar',
     }).then((result) => {
       if (callBack) {
-        callBack();
+
       }
     });
   }
@@ -90,7 +90,7 @@ export class UtilService {
    * @param name nombre del input con la propiedad name
    * @param form formulario donde se encuentra el input
    */
-  setFocus(name, form: ElementRef) {
+  setFocus(name: string | number, form: ElementRef) {
     const ele = form.nativeElement[name];
     if (ele) {
       ele.focus();

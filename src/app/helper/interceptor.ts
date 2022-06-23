@@ -3,7 +3,6 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {Observable, throwError} from 'rxjs';
 import {catchError, finalize} from 'rxjs/operators';
 import {BlockUI, NgBlockUI} from 'ng-block-ui';
-import {LocalService} from '../services/local.service';
 import {UtilService} from '../services/util.service';
 import {Router} from '@angular/router';
 
@@ -15,7 +14,6 @@ export class JwtInterceptor implements HttpInterceptor {
 
 
   constructor(
-    private localService: LocalService,
     private utilService: UtilService,
     private router: Router,
   ) {
@@ -26,15 +24,9 @@ export class JwtInterceptor implements HttpInterceptor {
       this.blockUI.start('Cargando aplicación, por favor espere...');
     }
     this.countRequest++;
-    const token: string = this.localService.getJsonValue('token');
+
     let request = req;
-    if (token) {
-      request = req.clone({
-        setHeaders: {
-          Authorization: `${ token }`
-        }
-      });
-    }
+
     // add authorization header with jwt token if available
     return next.handle(request).pipe(
       finalize(() => {

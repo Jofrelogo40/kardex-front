@@ -21,27 +21,11 @@ export class AccionesComponent implements ICellRendererAngularComp {
     return false;
   }
 
-  ampliar() {
-    this.context.componentParent.abrirInformacionMatricula(this.params.data);
-  }
-
-  notificar() {
-    this.context.componentParent.notificarMatricula(this.params.data);
-  }
-
   editar() {
     this.context.componentParent.editarMatricula(this.params.data);
   }
 
-  inhabilitar() {
+  eliminar() {
     this.context.componentParent.inhabilitarMatricula(this.params.data);
-  }
-
-  inactivar() {
-    this.context.componentParent.inactivarMatricula(this.params.data);
-  }
-
-  liberar() {
-    this.context.componentParent.liberarMatricula(this.params.data);
   }
 }

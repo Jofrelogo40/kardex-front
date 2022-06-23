@@ -1,0 +1,25 @@
+<div class="productos-component">
+  <mat-toolbar color="primary" class="colorTitle heightHeader">
+    <span class="fill-remaining-space"></span>
+    <mat-icon class="icoPrint" aria-hidden="false">list</mat-icon>
+    <span class="title fill-remaining-space colorTitle">PRODUCTOS</span>
+  </mat-toolbar>
+
+  <div style="margin-top: 10px">
+    <button class="btn" id="btnLimpiar" style="margin-left: 10px;" mat-raised-button
+            type="button" >Ingresar Movimiento</button>
+
+    <button class="btn" id="btnConsultar" mat-raised-button
+            type="button" style="margin-left: 10px"  >Nuevo</button>
+  </div>
+
+  <mat-card style="padding: 0px !important; margin: 10px;" [class.mat-elevation-z3]="true">
+
+    <ag-grid-angular style="width: 100%; height: 400px; max-height: 400px;" class="ag-theme-balham"
+                     [rowData]="gridConsultaProductos.rowData" [columnDefs]="gridConsultaProductos.columnsDef"
+                     [frameworkComponents]="gridConsultaProductos.gridComponents" [context]="context" (gridReady)="onGridReady($event)"
+                     [gridOptions]="gridOptions">
+    </ag-grid-angular>
+
+  </mat-card>
+</div>

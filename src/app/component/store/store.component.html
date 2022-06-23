@@ -1,0 +1,27 @@
+<div class="store-component">
+  <mat-toolbar color="primary" class="colorTitle heightHeader">
+    <span class="fill-remaining-space"></span>
+    <mat-icon class="icoPrint" aria-hidden="false">store</mat-icon>
+    <span class="title fill-remaining-space colorTitle"> HULK STORE</span>
+    <button mat-icon-button class="cart">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="product-grid">
+    <mat-card class="card" *ngFor="let product of products">
+      <mat-card-header>
+        <mat-card-title>{{ product.nombre | uppercase }}</mat-card-title>
+        <mat-card-subtitle>{{ product.precio | currency }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ product.descripcion | slice:0:30 }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button *ngIf="product.cantidad > 0" (click)="addCart()" mat-raised-button color="primary" >Agregar al carrito</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+</div>
