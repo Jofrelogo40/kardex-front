@@ -48,7 +48,6 @@ export class ProductosComponent implements OnInit {
 
       if (data) {
         this.gridConsultaProductos.rowData = data;
-        console.log('PRODUCTO: ', data);
       }
     }, (error: any) => {
       console.log(error);
